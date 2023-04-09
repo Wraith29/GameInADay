@@ -19,7 +19,6 @@ class PlayerBulletController(BulletController):
         for bullet in self.bullet_group:
             collisions = spritecollide(bullet, enemy_group, True)
             play_area.add_temp_multiplier(-10 * len(collisions), 1)
-            print(len(collisions))
         self.bullet_group.update(frame_time, **kwargs)
 
     def draw(self, window: Surface) -> None:
