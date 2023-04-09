@@ -27,7 +27,7 @@ class Map:
     def update(self, frame_time: float, **kwargs) -> None:
         self.play_area.update(frame_time)
 
-        self.player.update(frame_time, self.play_area.rect)
+        self.player.update(frame_time, self.play_area, self.enemy_controller.enemy_group)
 
         self.enemy_controller.update(
             frame_time,

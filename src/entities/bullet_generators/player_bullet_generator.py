@@ -9,7 +9,7 @@ from ..bullet import Bullet
 
 
 class PlayerBulletGenerator(BulletGenerator):
-    def __init__(self, cooldown_time: int = 1) -> None:
+    def __init__(self, cooldown_time: float = 1) -> None:
         BulletGenerator.__init__(self)
         self.cooldown = cooldown_time
 
@@ -24,4 +24,5 @@ class PlayerBulletGenerator(BulletGenerator):
             self.total_time += self.cooldown
 
     def tick(self, frame_time: float) -> None:
-        self.total_time -= frame_time
+        #self.total_time -= frame_time
+        self.total_time = 0
