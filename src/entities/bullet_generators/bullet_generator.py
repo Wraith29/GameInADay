@@ -8,6 +8,9 @@ from ..bullet_controller import BulletController
 class BulletGenerator(ABC):
     __slots__ = ("cooldown", "total_time")
 
+    total_time: float
+    cooldown: float
+
     def __init__(self) -> None:
         self.total_time = 0
         self.cooldown = 0
