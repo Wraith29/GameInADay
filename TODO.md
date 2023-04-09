@@ -3,4 +3,6 @@
 - [x] Add Player Shooting
   - [ ] Invert Shrinking on enemy death
 - [x] Add start and end screen
+- [x] Enemies die out of bounds
+- [ ] Player isnt visible out of bounds
 - [ ] Add Powerup system -> Optional

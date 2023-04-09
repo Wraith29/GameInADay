@@ -24,6 +24,12 @@ class EnemyController:
 
         self.enemy_group.add(Enemy(Vector2(pos_x, pos_y)))
 
+    def cull_enemies_outside_bounds(self, play_area: Rect)-> None:
+        for enemy in self.enemy_group:
+            if not play_area.contains(enemy.get_pos()):
+                self.enemy_group.remove(enemy)
+
+
     def update(self, frame_time: float, play_area: Rect, **kwargs) -> None:
         self.enemy_group.update(frame_time, **kwargs)
 
