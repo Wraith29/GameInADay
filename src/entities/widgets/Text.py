@@ -3,7 +3,7 @@
 # from pygame.font import Font, SysFont
 # from pygame.surface import Surface
 
-# from ../../colour import Colour
+# from src.colour import Colour
 
 
 # class Text:
