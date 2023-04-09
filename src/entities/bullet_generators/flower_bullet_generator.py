@@ -1,4 +1,4 @@
-__all__ = ["SpiralBulletGenerator"]
+__all__ = ["FlowerBulletGenerator"]
 
 import math
 from copy import deepcopy
@@ -21,7 +21,7 @@ def bullet_modifier(vector: Vector2, frame_time: float) -> Vector2:
     return vector.normalize() * 3
 
 
-class SpiralBulletGenerator(BulletGenerator):
+class FlowerBulletGenerator(BulletGenerator):
     def __init__(self, cooldown_time: int = 1) -> None:
         BulletGenerator.__init__(self)
         self.cooldown = cooldown_time

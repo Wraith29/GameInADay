@@ -1,11 +1,12 @@
-__all__ = ["BulletController"]
+__all__ = ["EnemyBulletController"]
 
 from pygame.surface import Surface
 from pygame.sprite import Group as SpriteGroup
-from .bullet import Bullet
+from ..bullet import Bullet
+from .bullet_controller import BulletController
 
 
-class BulletController:
+class EnemyBulletController(BulletController):
     __slots__ = ("bullet_group")
     bullet_group: SpriteGroup
 

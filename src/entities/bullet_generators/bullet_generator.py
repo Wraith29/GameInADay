@@ -2,7 +2,7 @@ __all__ = ["BulletGenerator"]
 
 from abc import ABC
 from pygame.math import Vector2
-from ..bullet_controller import BulletController
+from ..bullet_controllers.bullet_controller import BulletController
 
 
 class BulletGenerator(ABC):
@@ -17,4 +17,4 @@ class BulletGenerator(ABC):
 
     def update(self, frame_time: float, position: Vector2, bullet_controller: BulletController, **kwargs) -> None:
         """Virtual Method"""
-        raise NotImplementedError("Virtual Method")
+        raise NotImplementedError("Virtual Method Accessed")
