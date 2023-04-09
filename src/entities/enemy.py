@@ -6,9 +6,8 @@ from pygame import image
 from pygame.math import Vector2
 from pygame import transform
 from .bullet_generators.bullet_generator import BulletGenerator
-from .bullet_generators.simple_bullet_generator import SimpleBulletGenerator
 from .bullet_generators.spiral_bullet_generator import SpiralBulletGenerator
-from .bullet_generators.flower_bullet_generator import FlowerBulletGenerator
+
 
 class Enemy(Sprite):
     __slots__ = ("position", "bullet_generator", "sprite", "image", "size")

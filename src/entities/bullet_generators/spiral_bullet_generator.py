@@ -20,6 +20,7 @@ def bullet_modifier(vector: Vector2, frame_time: float, bullet_lifetime: float, 
 
     return vector
 
+
 class SpiralBulletGenerator(BulletGenerator):
     def __init__(self, cooldown_time: int = 1) -> None:
         BulletGenerator.__init__(self)
