@@ -10,6 +10,7 @@ from .map import Map
 from .colour import Colour
 from .consts import WINDOW_WIDTH, WINDOW_HEIGHT
 from .widgets.text import Text
+from .widgets.button import Button
 
 
 class Game:
@@ -57,6 +58,8 @@ class Game:
         text_rect = Rect(0, 0, 0, 0)
         text_rect.center = (int(WINDOW_WIDTH/2), int(WINDOW_HEIGHT/2))
         end_text = Text("Game End", 150, text_rect, Colour.Pink, True)
+
+        #retry_button = Button()
 
         text_hide = Surface((WINDOW_WIDTH, WINDOW_HEIGHT))
         text_hide.fill(Colour.Black)

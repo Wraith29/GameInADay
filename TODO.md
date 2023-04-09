@@ -1,8 +1,9 @@
 - [x] Add Player Collisions
   - [x] Increase Shrink Rate on hit
 - [x] Add Player Shooting
-  - [ ] Invert Shrinking on enemy death
+  - [x] Invert Shrinking on enemy death
 - [x] Add start and end screen
 - [x] Enemies die out of bounds
+- [x] Score system
 - [ ] Player isnt visible out of bounds
 - [ ] Add Powerup system -> Optional
