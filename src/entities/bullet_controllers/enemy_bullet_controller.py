@@ -5,7 +5,7 @@ from pygame.sprite import Group as SpriteGroup, spritecollide
 from ..bullet import Bullet
 from .bullet_controller import BulletController
 from ..player import Player
-from src.play_area import PlayArea
+from src.playarea import PlayArea
 
 
 class EnemyBulletController(BulletController):
