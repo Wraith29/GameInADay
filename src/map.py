@@ -6,7 +6,7 @@ from .entities.enemy_controller import EnemyController
 from .entities.bullet_controllers.enemy_bullet_controller import EnemyBulletController
 from .colour import Colour
 
-from .playarea import PlayArea
+from .play_area import PlayArea
 
 
 class Map:

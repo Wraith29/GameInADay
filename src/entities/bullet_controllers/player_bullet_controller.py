@@ -3,7 +3,7 @@ __all__ = ["PlayerBulletController"]
 from pygame.surface import Surface
 from pygame.sprite import Group as SpriteGroup, spritecollide
 
-from src.playarea import PlayArea
+from src.play_area import PlayArea
 from ..bullet import Bullet
 from .bullet_controller import BulletController
 

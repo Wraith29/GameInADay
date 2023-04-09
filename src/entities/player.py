@@ -10,7 +10,7 @@ from pygame.rect import Rect
 import math
 from copy import deepcopy
 
-from src.playarea import PlayArea
+from src.play_area import PlayArea
 
 from ..consts import WINDOW_WIDTH, WINDOW_HEIGHT
 from .bullet_generators.player_bullet_generator import PlayerBulletGenerator
