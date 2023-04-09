@@ -2,12 +2,16 @@ __all__ = ["Player"]
 
 import pygame
 from pygame.sprite import Sprite
+from pygame.sprite import Group as SpriteGroup
 from pygame.surface import Surface
 from pygame.math import Vector2
 from pygame.locals import K_w, K_s, K_a, K_d
 from pygame.rect import Rect
 import math
 from copy import deepcopy
+
+from src.playarea import PlayArea
+
 from ..consts import WINDOW_WIDTH, WINDOW_HEIGHT
 from .bullet_generators.player_bullet_generator import PlayerBulletGenerator
 from .bullet_controllers.player_bullet_controller import PlayerBulletController
@@ -35,10 +39,10 @@ class Player(Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (int(self.position.x), int(self.position.y))
 
-        self.bullet_generator = PlayerBulletGenerator(1)
+        self.bullet_generator = PlayerBulletGenerator(0.5)
         self.bullet_controller = PlayerBulletController()
 
-    def update(self, frame_time: float, play_area: Rect, **kwargs) -> None:
+    def update(self, frame_time: float, play_area: PlayArea, enemy_group: SpriteGroup, **kwargs) -> None:
         # user input
         pressed = pygame.key.get_pressed()
         if pressed[K_w]:
@@ -57,14 +61,15 @@ class Player(Sprite):
         self.position += self.move_vector * frame_time * self.speed
 
         # keep inside play area
-        if self.position.x < play_area.x:
-            self.position.x = play_area.x
-        if self.position.x > play_area.x + play_area.width - self.size:
-            self.position.x = play_area.x + play_area.width - self.size
-        if self.position.y < play_area.y:
-            self.position.y = play_area.y
-        if self.position.y > play_area.y + play_area.height - self.size:
-            self.position.y = play_area.y + play_area.height - self.size
+        play_area_r = play_area.rect
+        if self.position.x < play_area_r.x:
+            self.position.x = play_area_r.x
+        if self.position.x > play_area_r.x + play_area_r.width - self.size:
+            self.position.x = play_area_r.x + play_area_r.width - self.size
+        if self.position.y < play_area_r.y:
+            self.position.y = play_area_r.y
+        if self.position.y > play_area_r.y + play_area_r.height - self.size:
+            self.position.y = play_area_r.y + play_area_r.height - self.size
 
         self.rect.center = (int(self.position.x), int(self.position.y))
 
@@ -73,7 +78,7 @@ class Player(Sprite):
         else:
             self.bullet_generator.tick(frame_time)
 
-        self.bullet_controller.update(frame_time)
+        self.bullet_controller.update(frame_time, enemy_group, play_area)
 
     def draw(self, window: Surface) -> None:
         mouse_x, mouse_y = pygame.mouse.get_pos()

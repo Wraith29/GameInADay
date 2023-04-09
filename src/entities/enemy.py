@@ -23,7 +23,7 @@ class Enemy(Sprite):
         Sprite.__init__(self)
 
         self.position = start_pos
-        self.bullet_generator = bullet_generator(0.1)
+        self.bullet_generator = bullet_generator(0.75)
 
         self.sprite = "sprites/Enemy.png"
         self.size = 20

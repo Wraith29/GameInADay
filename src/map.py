@@ -28,7 +28,7 @@ class Map:
         self.play_area.update(frame_time)
         self.enemy_controller.cull_enemies_outside_bounds(self.play_area.rect)
 
-        self.player.update(frame_time, self.play_area.rect)
+        self.player.update(frame_time, self.play_area, self.enemy_controller.enemy_group)
 
         self.enemy_controller.update(
             frame_time,
