@@ -11,11 +11,12 @@ class Multiplier:
 
 
 class PlayArea:
-    __slots__ = ("width", "height", "_multiplier", "_temp_multipliers")
+    __slots__ = ("width", "height", "_multiplier", "_temp_multipliers", "_rect")
     width: float
     height: float
     _multiplier: float
     _temp_multipliers: list[Multiplier]
+    _rect: Rect
 
     def __init__(self, width: float, height: float, multiplier: float = 1.0) -> None:
         self.width = width
