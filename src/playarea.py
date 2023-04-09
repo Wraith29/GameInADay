@@ -26,7 +26,9 @@ class PlayArea:
         self.width = 1600
         self.height = 900
 
-    def update(self, frame_time: float, play_area: Rect) -> Rect:
+        self._rect = Rect((1600 - self.width) / 2, (900 - self.height) / 2, self.width, self.height)
+
+    def update(self, frame_time: float) -> None:
         value = frame_time * self.multiplier * 10
 
         for temp_multiplier in self._temp_multipliers:
@@ -37,7 +39,7 @@ class PlayArea:
         self.width = self.width - value * (16 / 25) * 1.5
         self.height = self.height - value * (9 / 25) * 1.5
 
-        return Rect((1600 - self.width) / 2, (900 - self.height) / 2, self.width, self.height)
+        self._rect = Rect((1600 - self.width) / 2, (900 - self.height) / 2, self.width, self.height)
 
     def add_temp_multiplier(self, multiplier: float, time: float) -> None:
 
@@ -52,5 +54,5 @@ class PlayArea:
         return calc
 
     @property
-    def play_area(self) -> Rect:
-        return Rect((1600 - self.width) / 2, (900 - self.width) / 2, self.width, self.height)
+    def rect(self) -> Rect:
+        return self._rect
