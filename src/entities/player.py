@@ -51,6 +51,8 @@ class Player:
 
         if pygame.mouse.get_pressed()[0] == 1:
             self.bullet_generator.update(frame_time, self.pos, self.bullet_controller)
+            
+        self.bullet_controller.update(frame_time)
 
         # keep inside play area
         if self.pos.x < play_area.x:
