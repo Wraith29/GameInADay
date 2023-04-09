@@ -36,8 +36,8 @@ class Map:
     def update(self, frame_time: float, **kwargs) -> None:
         temp_multiplier = (frame_time * self.multiplier * 10)
 
-        self.play_area_size["width"] -= temp_multiplier
-        self.play_area_size["height"] -= temp_multiplier
+        self.play_area_size["width"] -= temp_multiplier * (16/25) * 1.5
+        self.play_area_size["height"] -= temp_multiplier * (9/25) * 1.5
 
         self.play_area = Rect(
             round((1600 - self.play_area_size["width"]) / 2),
