@@ -33,13 +33,15 @@ class PlayArea:
         self._rect = Rect((1600 - self.width) / 2, (900 - self.height) / 2, self.width, self.height)
 
     def update(self, frame_time: float) -> None:
+        print(self.multiplier)
+        print(self._temp_multipliers)
         for temp_multiplier in self._temp_multipliers:
             temp_multiplier.time -= frame_time
             if temp_multiplier.time <= 0:
                 self._temp_multipliers.remove(temp_multiplier)
 
-        self.width = min(1600.0, self.width - (frame_time * (16 / 25) * 1.5) * self.multiplier)
-        self.height = min(900.0, self.height - (frame_time * (9 / 25) * 1.5) * self.multiplier)
+        self.width = min(1600.0, self.width - (frame_time * (16 / 25)) * self.multiplier)
+        self.height = min(900.0, self.height - (frame_time * (9 / 25)) * self.multiplier)
 
         self._rect = Rect((1600 - self.width) / 2, (900 - self.height) / 2, self.width, self.height)
 

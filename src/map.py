@@ -1,6 +1,8 @@
 __all__ = ["Map"]
 
 from pygame.surface import Surface
+
+from .consts import DEFAULT_SCREEN_MULTIPLIER
 from .entities.player import Player
 from .entities.enemy_controller import EnemyController
 from .entities.bullet_controllers.enemy_bullet_controller import EnemyBulletController
@@ -22,7 +24,7 @@ class Map:
         self.enemy_controller = EnemyController()
         self.bullet_controller = EnemyBulletController()
 
-        self.play_area = PlayArea(1550, 850, 30)
+        self.play_area = PlayArea(1550, 850, DEFAULT_SCREEN_MULTIPLIER)
 
     def update(self, frame_time: float, **kwargs) -> None:
         self.play_area.update(frame_time)
