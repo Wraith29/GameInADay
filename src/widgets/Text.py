@@ -6,6 +6,7 @@ from pygame.rect import Rect
 
 from ..colour import Colour
 
+
 class Text:
     __slots__ = ("font", "surface", "location")
     font: Font
@@ -17,8 +18,8 @@ class Text:
         self.surface = self.font.render(text, False, Colour.White)
         self.location = location
 
-    def change_text(self, text: str):
+    def change_text(self, text: str) -> None:
         self.surface = self.font.render(text, False, Colour.White)
 
-    def draw(self, surface: Surface):
+    def draw(self, surface: Surface) -> None:
         self.surface.blit(surface, self.location)

@@ -9,7 +9,6 @@ from pygame.rect import Rect
 import math
 from copy import deepcopy
 from ..consts import WINDOW_WIDTH, WINDOW_HEIGHT
-from .bullet_generators.bullet_generator import BulletGenerator
 from .bullet_generators.player_bullet_generator import PlayerBulletGenerator
 from .bullet_controllers.player_bullet_controller import PlayerBulletController
 
@@ -21,7 +20,7 @@ class Player(Sprite):
     speed: float
     sprite: str
     image: Surface
-    bullet_generator: BulletGenerator
+    bullet_generator: PlayerBulletGenerator
     bullet_controller: PlayerBulletController
 
     def __init__(self) -> None:
@@ -59,6 +58,8 @@ class Player(Sprite):
 
         if pygame.mouse.get_pressed()[0] == 1:
             self.bullet_generator.update(frame_time, deepcopy(self.position), self.bullet_controller)
+        else:
+            self.bullet_generator.tick(frame_time)
 
         self.bullet_controller.update(frame_time)
 

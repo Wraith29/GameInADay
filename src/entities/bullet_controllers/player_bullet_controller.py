@@ -20,6 +20,7 @@ class PlayerBulletController(BulletController):
         self.bullet_group.draw(window)
 
     def add_bullet(self, bullet: Bullet) -> None:
+        print("Hello")
         self.bullet_group.add(bullet)
 
     def remove_bullet(self, bullet: Bullet) -> None:

@@ -17,4 +17,4 @@ class BulletGenerator(ABC):
 
     def update(self, frame_time: float, position: Vector2, bullet_controller: BulletController, **kwargs) -> None:
         """Virtual Method"""
-        raise NotImplementedError("Virtual Method")
+        raise NotImplementedError("Virtual Method Accessed")
