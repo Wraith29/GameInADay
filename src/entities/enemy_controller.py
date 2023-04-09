@@ -25,16 +25,13 @@ class EnemyController:
         self.enemy_group.add(Enemy(Vector2(pos_x, pos_y)))
 
     def update(self, frame_time: float, play_area: Rect, **kwargs) -> None:
+        self.enemy_group.update(frame_time, **kwargs)
+
         self.spawn_timer += frame_time
 
-        if self.spawn_timer < ENEMY_SPAWN_TIMER:
-            return
-
-        self.spawn_timer -= ENEMY_SPAWN_TIMER
-
-        self.spawn_enemy(play_area)
-
-        self.enemy_group.update(frame_time, **kwargs)
+        if self.spawn_timer > ENEMY_SPAWN_TIMER:
+            self.spawn_enemy(play_area)
+            self.spawn_timer -= ENEMY_SPAWN_TIMER
 
     def draw(self, window: Surface) -> None:
         self.enemy_group.draw(window)

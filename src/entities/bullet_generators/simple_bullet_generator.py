@@ -1,7 +1,8 @@
 __all__ = ["SimpleBulletGenerator"]
 
+from copy import deepcopy
 from pygame.math import Vector2
-from ..bullet_controller import BulletController
+from ..bullet_controllers.bullet_controller import BulletController
 from .bullet_generator import BulletGenerator
 from ..player import Player
 from ..bullet import Bullet
@@ -24,6 +25,6 @@ class SimpleBulletGenerator(BulletGenerator):
 
         if self.total_time < 0:
             player_pos = player.get_pos()  # Get the player position here
-            bullet_controller.add_bullet(Bullet(position, (player_pos-position).normalize()))
+            bullet_controller.add_bullet(Bullet(deepcopy(position), (player_pos-position).normalize()))
 
             self.total_time += self.cooldown

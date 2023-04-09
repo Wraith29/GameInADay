@@ -50,7 +50,6 @@ class Game:
             self.handle_events()
 
             self.game_map.update(frame_time)
-
             self.game_map.draw(self.window)
 
             pygame.display.flip()

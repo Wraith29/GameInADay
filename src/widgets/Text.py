@@ -6,6 +6,7 @@ from pygame.rect import Rect
 
 from ..colour import Colour
 
+
 class Text:
     __slots__ = ("font", "surface", "location", "colour", "center")
     font: Font

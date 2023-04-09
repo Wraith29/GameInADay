@@ -2,4 +2,5 @@
   - [ ] Increase Shrink Rate on hit
 - [ ] Add Player Shooting
   - [ ] Invert Shrinking on enemy death
-- [ ] Add start and end screen
+- [x] Add start and end screen
+- [ ] Add Powerup system

@@ -3,7 +3,7 @@ __all__ = ["PlayerBulletGenerator"]
 import pygame
 
 from pygame.math import Vector2
-from ..bullet_controller import BulletController
+from ..bullet_controllers.bullet_controller import BulletController
 from .bullet_generator import BulletGenerator
 from ..bullet import Bullet
 
@@ -22,3 +22,6 @@ class PlayerBulletGenerator(BulletGenerator):
             bullet_controller.add_bullet(Bullet(position, (target_pos-position).normalize()))
 
             self.total_time += self.cooldown
+
+    def tick(self, frame_time: float) -> None:
+        self.total_time -= frame_time
