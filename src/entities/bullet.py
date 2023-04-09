@@ -1,6 +1,6 @@
 __all__ = ["Bullet"]
 
-from typing import Callable, Any
+from typing import Callable
 from pygame import image, transform
 from pygame.rect import Rect
 from pygame.math import Vector2
@@ -46,11 +46,11 @@ class Bullet(Sprite):
             self.movement_vector = self.movement_modifier(self.movement_vector, frame_time, bullet_lifetime=self.lifetime)
 
         self.rect.center = (int(self.position.x), int(self.position.y))
-     
+
 
 class PlayerBullet(Bullet):
-    def __init__(self, start_position: Vector2, 
-                 movement_vector: Vector2, 
+    def __init__(self, start_position: Vector2,
+                 movement_vector: Vector2,
                  movement_modifier: Callable[[Vector2, float], Vector2] | None = None
                  ) -> None:
         super().__init__(start_position, movement_vector, movement_modifier)
