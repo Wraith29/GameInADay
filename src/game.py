@@ -9,7 +9,7 @@ from pygame.time import Clock
 from .map import Map
 from .colour import Colour
 from .consts import WINDOW_WIDTH, WINDOW_HEIGHT
-from .widgets.Text import Text
+from .widgets.text import Text
 
 
 class Game:
@@ -78,6 +78,5 @@ class Game:
                 text_hide.set_alpha(int(255 - (fade_value/10)))
 
             self.window.blit(text_hide, Rect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT))
-
 
             pygame.display.flip()

@@ -4,8 +4,6 @@ from pygame.font import Font, SysFont
 from pygame.surface import Surface
 from pygame.rect import Rect
 
-from ..colour import Colour
-
 
 class Text:
     __slots__ = ("font", "surface", "location", "colour", "center")
@@ -15,7 +13,14 @@ class Text:
     colour: tuple[int, int, int]
     center: bool
 
-    def __init__(self, text: str, size: int, location: Rect, colour: tuple[int, int, int], center: bool = False) -> None:
+    def __init__(
+                  self,
+                  text: str,
+                  size: int,
+                  location: Rect,
+                  colour: tuple[int, int, int],
+                  center: bool = False
+                ) -> None:
         self.font = SysFont("", size)
         self.location = location
         self.colour = colour
