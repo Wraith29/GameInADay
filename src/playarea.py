@@ -43,7 +43,6 @@ class PlayArea:
         self._rect = Rect((1600 - self.width) / 2, (900 - self.height) / 2, self.width, self.height)
 
     def add_temp_multiplier(self, multiplier: float, time: float) -> None:
-
         self._temp_multipliers.append(Multiplier(multiplier, time))
 
     @property

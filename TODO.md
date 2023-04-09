@@ -1,6 +1,6 @@
-- [ ] Add Player Collisions
-  - [ ] Increase Shrink Rate on hit
-- [ ] Add Player Shooting
+- [x] Add Player Collisions
+  - [x] Increase Shrink Rate on hit
+- [x] Add Player Shooting
   - [ ] Invert Shrinking on enemy death
 - [x] Add start and end screen
-- [ ] Add Powerup system
+- [ ] Add Powerup system -> Optional
