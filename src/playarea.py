@@ -1,12 +1,27 @@
+__all__ = ["PlayArea"]
+
 from pygame import Rect
+from dataclasses import dataclass
+
+
+@dataclass(slots=True)
+class Multiplier:
+    multiplier: float
+    time: float  # Is this in seconds or ms?
 
 
 class PlayArea:
-    def __init__(self, pWidth: int, pHeight: int, pMultiplier: float = 1.0) -> None:
-        self.width = pWidth
-        self.height = pHeight
+    __slots__ = ("width", "height", "_multiplier", "_temp_multipliers")
+    width: float
+    height: float
+    _multiplier: float
+    _temp_multipliers: list[Multiplier]
 
-        self._multiplier = pMultiplier
+    def __init__(self, width: float, height: float, multiplier: float = 1.0) -> None:
+        self.width = width
+        self.height = height
+
+        self._multiplier = multiplier
         self._temp_multipliers = []
         self.width = 1600
         self.height = 900
@@ -15,8 +30,8 @@ class PlayArea:
         value = frame_time * self.multiplier * 10
 
         for temp_multiplier in self._temp_multipliers:
-            temp_multiplier["time"] -= frame_time
-            if temp_multiplier["time"] <= 0:
+            temp_multiplier.time -= frame_time
+            if temp_multiplier.time <= 0:
                 self._temp_multipliers.remove(temp_multiplier)
 
         self.width = self.width - value * (16 / 25) * 1.5
@@ -24,14 +39,15 @@ class PlayArea:
 
         return Rect((1600 - self.width) / 2, (900 - self.height) / 2, self.width, self.height)
 
-    def add_temp_multiplier(self, pMultiplier, pTime):
-        self._temp_multipliers.append({"multiplier": pMultiplier, "time": pTime})
+    def add_temp_multiplier(self, multiplier: float, time: float) -> None:
+
+        self._temp_multipliers.append(Multiplier(multiplier, time))
 
     @property
     def multiplier(self) -> float:
         calc = self._multiplier
         for temp_multiplier in self._temp_multipliers:
-            calc += temp_multiplier["multiplier"]
+            calc += temp_multiplier.multiplier
 
         return calc
 
