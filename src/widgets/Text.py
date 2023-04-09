@@ -7,18 +7,25 @@ from pygame.rect import Rect
 from ..colour import Colour
 
 class Text:
-    __slots__ = ("font", "surface", "location")
+    __slots__ = ("font", "surface", "location", "colour", "center")
     font: Font
     surface: Surface
     location: Rect
+    colour: tuple[int, int, int]
+    center: bool
 
-    def __init__(self, text: str, size: int, location: Rect) -> None:
+    def __init__(self, text: str, size: int, location: Rect, colour: tuple[int, int, int], center: bool = False) -> None:
         self.font = SysFont("", size)
-        self.surface = self.font.render(text, False, Colour.White)
         self.location = location
+        self.colour = colour
+        self.center = center
+        self.set_text(text)
 
-    def change_text(self, text: str):
-        self.surface = self.font.render(text, False, Colour.White)
+    def set_text(self, text: str) -> None:
+        temp_rect = self.location
+        self.surface = self.font.render(text, True, self.colour)
+        self.location = self.surface.get_rect()
+        self.location.center = (temp_rect.x, temp_rect.y)
 
-    def draw(self, surface: Surface):
-        self.surface.blit(surface, self.location)
+    def draw(self, surface: Surface) -> None:
+        surface.blit(self.surface, self.location)

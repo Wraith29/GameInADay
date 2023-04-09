@@ -12,7 +12,7 @@ def main() -> int:
 
     game = Game()
 
-    game.run()
+    #game.run()
 
     game.display_end_screen()
 

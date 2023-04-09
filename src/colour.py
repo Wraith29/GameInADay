@@ -2,5 +2,6 @@ __all__ = ["Colour"]
 
 
 class Colour:
-    White = (255, 255, 255)
-    Black = (0, 0, 0)
+    White: tuple[int, int, int] = (255, 255, 255)
+    Black: tuple[int, int, int] = (0, 0, 0)
+    Pink: tuple[int, int, int] = (255, 174, 201)
