@@ -1,2 +1,7 @@
 - limited space
 - infinate space
+
+
+- Bullet Hell
+  - On Hit -> Screen Shrink
+  - On Kill -> Widen
