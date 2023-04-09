@@ -1,3 +1,4 @@
+from src.game import Game
 from src.log import error
 import pygame
 
@@ -7,6 +8,10 @@ def main() -> int:
 
     if num_errors != 0:
         error("Failed To Initialise Pygame")
+
+    game = Game()
+
+    game.run()
 
     return 0
 
