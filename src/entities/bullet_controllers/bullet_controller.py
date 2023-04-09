@@ -15,13 +15,13 @@ class BulletController(ABC):
         self.bullet_group = SpriteGroup()
 
     def update(self, frame_time: float, **kwargs) -> None:
-        raise NotImplementedError("Virutal Method Accessed")
+        self.bullet_group.update()
 
     def draw(self, window: Surface) -> None:
-        raise NotImplementedError("Virtual Method Accessed")
+        self.bullet_group.draw(window)
 
     def add_bullet(self, bullet: Bullet) -> None:
-        raise NotImplementedError("Virtual Method Accessed")
+        self.bullet_group.add(bullet)
 
     def remove_bullet(self, bullet: Bullet) -> None:
-        raise NotImplementedError("Virtual Method Accessed")
+        self.bullet_group.remove(bullet)
