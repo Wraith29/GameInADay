@@ -5,6 +5,7 @@ from pygame.surface import Surface
 from pygame import image
 from pygame.math import Vector2
 from pygame import transform
+from pygame.rect import Rect
 from .bullet_generators.bullet_generator import BulletGenerator
 from .bullet_generators.spiral_bullet_generator import SpiralBulletGenerator
 
@@ -33,3 +34,6 @@ class Enemy(Sprite):
 
     def update(self, frame_time: float, **kwargs) -> None:
         self.bullet_generator.update(frame_time, position=self.position, **kwargs)
+
+    def get_pos(self) -> Rect:
+        return self.rect
