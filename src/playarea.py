@@ -54,7 +54,7 @@ class PlayArea:
         for temp_multiplier in self._temp_multipliers:
             calc += temp_multiplier.multiplier
 
-        return calc
+        return calc * 10
 
     @property
     def rect(self) -> Rect:
