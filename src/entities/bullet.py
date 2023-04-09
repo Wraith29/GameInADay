@@ -33,6 +33,7 @@ class Bullet(Sprite):
 
     def update(self, frame_time: float, **kwargs) -> None:
         self.position += self.movement_vector * frame_time * 100
+
         if self.movement_modifier:
             self.movement_vector = self.movement_modifier(self.movement_vector, frame_time)
 
