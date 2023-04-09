@@ -62,6 +62,7 @@ class Map:
         window.fill(Colour.White, self.play_area)
 
         self.player.draw(window)
+        self.player.bullet_controller.draw(window)
         self.enemy_controller.draw(window)
         self.bullet_controller.draw(window)
 

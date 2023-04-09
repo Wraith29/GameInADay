@@ -56,13 +56,6 @@ class Player(Sprite):
 
         self.position += self.move_vector * frame_time * self.speed
 
-        if pygame.mouse.get_pressed()[0] == 1:
-            self.bullet_generator.update(frame_time, deepcopy(self.position), self.bullet_controller)
-        else:
-            self.bullet_generator.tick(frame_time)
-
-        self.bullet_controller.update(frame_time)
-
         # keep inside play area
         if self.position.x < play_area.x:
             self.position.x = play_area.x
@@ -72,6 +65,13 @@ class Player(Sprite):
             self.position.y = play_area.y
         if self.position.y > play_area.y + play_area.height - self.size:
             self.position.y = play_area.y + play_area.height - self.size
+
+        if pygame.mouse.get_pressed()[0] == 1:
+            self.bullet_generator.update(frame_time, deepcopy(self.position), self.bullet_controller)
+        else:
+            self.bullet_generator.tick(frame_time)
+
+        self.bullet_controller.update(frame_time)
 
     def draw(self, window: Surface) -> None:
         mouse_x, mouse_y = pygame.mouse.get_pos()
