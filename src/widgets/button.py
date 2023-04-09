@@ -2,7 +2,7 @@ from pygame.rect import Rect
 from pygame import mouse as Mouse
 from pygame import draw
 from pygame.surface import Surface
-from text import Text
+from .text import Text
 from ..colour import Colour
 
 
