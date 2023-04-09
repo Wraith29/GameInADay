@@ -66,6 +66,8 @@ class Player(Sprite):
         if self.position.y > play_area.y + play_area.height - self.size:
             self.position.y = play_area.y + play_area.height - self.size
 
+        self.rect.center = (int(self.position.x), int(self.position.y))
+
         if pygame.mouse.get_pressed()[0] == 1:
             self.bullet_generator.update(frame_time, deepcopy(self.position), self.bullet_controller)
         else:

@@ -1,15 +1,11 @@
 __all__ = ["Map"]
 
-import asyncio
-
-from pygame import time
 from pygame.rect import Rect
 from pygame.surface import Surface
 from .entities.player import Player
 from .entities.enemy_controller import EnemyController
 from .entities.bullet_controllers.enemy_bullet_controller import EnemyBulletController
 from .colour import Colour
-from typing import Dict
 
 from .playarea import PlayArea
 
@@ -19,7 +15,6 @@ class Map:
 
     player: Player
     enemy_controller: EnemyController
-    
     bullet_controller: EnemyBulletController
     play_area: PlayArea
 
@@ -43,7 +38,7 @@ class Map:
             **kwargs
         )
 
-        self.bullet_controller.update(frame_time, player_sprite=self.player.sprite, **kwargs)
+        self.bullet_controller.update(frame_time, player=self.player, play_area=self.play_area, **kwargs)
 
     def draw(self, window: Surface) -> None:
         window.fill(Colour.White, self.play_area.rect)
