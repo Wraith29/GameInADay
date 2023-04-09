@@ -5,7 +5,7 @@ from pygame.math import Vector2
 from ..bullet_controller import BulletController
 
 class BulletGenerator(ABC):
-    __slots__ = ("total_time", "cooldown")
+    __slots__ = ("cooldown", "total_time")
 
     
     def __init__(self) -> None:

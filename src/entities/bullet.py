@@ -1,6 +1,6 @@
 __all__ = ["Bullet"]
 
-from typing import Callable, Any
+from typing import Callable
 from pygame import image, transform
 from pygame.math import Vector2
 from pygame.sprite import Sprite
@@ -14,7 +14,6 @@ class Bullet(Sprite):
 
     def __init__(self, start_position: Vector2, movement_vector: Vector2, movement_modifier: Callable[[Vector2, float], Vector2] | None = None) -> None:
         Sprite.__init__(self)
-        print("Bullet!")
         self.sprite = "sprites/Bullet.png"
         self.size = 20
         self.image = transform.scale(image.load(self.sprite), (int(self.size), int(self.size)))
@@ -27,8 +26,8 @@ class Bullet(Sprite):
         self.movement_modifier = movement_modifier
 
     def update(self, frame_time: float, **kwargs):
-        self.position += self.movement_vector * frame_time
+        self.position += self.movement_vector * frame_time * 100
         if self.movement_modifier:
-            self.movement_vector = self.movement_modifier(self.movement_vector, frame_time) * 10
+            self.movement_vector = self.movement_modifier(self.movement_vector, frame_time)
 
-        self.rect.center = (int(self.position.x), int(self.rect.y))
+        self.rect.center = (int(self.position.x), int(self.position.y))

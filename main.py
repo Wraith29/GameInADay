@@ -14,6 +14,8 @@ def main() -> int:
 
     game.run()
 
+    game.display_end_screen()
+
     return 0
 
 

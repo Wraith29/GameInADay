@@ -18,13 +18,13 @@ class EnemyController:
         self.enemy_group = SpriteGroup()
         self.spawn_timer = 0
 
-    def spawn_enemy(self, map_constraints: Rect) -> None:
-        pos_x = randint(map_constraints.x, map_constraints.x + map_constraints.width)
-        pos_y = randint(map_constraints.y, map_constraints.y + map_constraints.height)
+    def spawn_enemy(self, play_area: Rect) -> None:
+        pos_x = randint(play_area.x, play_area.x + play_area.width)
+        pos_y = randint(play_area.y, play_area.y + play_area.height)
 
         self.enemy_group.add(Enemy(Vector2(pos_x, pos_y)))
 
-    def update(self, frame_time: float, map_constraints: Rect, **kwargs) -> None:
+    def update(self, frame_time: float, play_area: Rect, **kwargs) -> None:
         self.spawn_timer += frame_time
 
         if self.spawn_timer < ENEMY_SPAWN_TIMER:
@@ -32,7 +32,7 @@ class EnemyController:
     
         self.spawn_timer -= ENEMY_SPAWN_TIMER
 
-        self.spawn_enemy(map_constraints)
+        self.spawn_enemy(play_area)
 
         self.enemy_group.update(frame_time, **kwargs)
 
