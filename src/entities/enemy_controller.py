@@ -29,7 +29,7 @@ class EnemyController:
 
         if self.spawn_timer < ENEMY_SPAWN_TIMER:
             return
-    
+
         self.spawn_timer -= ENEMY_SPAWN_TIMER
 
         self.spawn_enemy(play_area)

@@ -26,11 +26,11 @@ class Player:
         self.size = 20
         self.speed = 100
         self.move_vector = pygame.Vector2(0, 0)
-        
+
         self.sprite = pygame.transform.scale(pygame.image.load("sprites/Player.png"), (int(self.size), int(self.size)))
         self.bullet_generator = PlayerBulletGenerator(1)
         self.bullet_controller = BulletController()
-    
+
     def update(self, frame_time: float, play_area: Rect, **kwargs) -> None:
         # user input
         pressed = pygame.key.get_pressed()
@@ -51,8 +51,6 @@ class Player:
 
         if pygame.mouse.get_pressed()[0] == 1:
             self.bullet_generator.update(frame_time, self.pos, self.bullet_controller)
-        
-        
 
         # keep inside play area
         if self.pos.x < play_area.x:
@@ -67,12 +65,12 @@ class Player:
     def draw(self, window: Surface) -> None:
         mouse_x, mouse_y = pygame.mouse.get_pos()
         angle = math.degrees(math.atan2(self.pos.x - mouse_x, self.pos.y - mouse_y))
-        
+
         window.blit(pygame.transform.rotate(self.sprite, angle), (self.pos.x, self.pos.y))
 
     def get_pos(self) -> Vector2:
         return self.pos
-    
+
     def set_pos(self, x: int, y: int) -> None:
         self.pos.x = x
         self.pos.y = y

@@ -6,8 +6,7 @@ from pygame.surface import Surface
 from pygame.time import Clock
 from .map import Map
 from .colour import Colour
-
-from .consts import WINDOW_WIDTH, WINDOW_HEIGHT, FPS
+from .consts import WINDOW_WIDTH, WINDOW_HEIGHT
 
 
 class Game:
@@ -25,14 +24,14 @@ class Game:
 
         self.game_map = Map()
 
-    def checkEvents(self) -> None:
+    def handle_events(self) -> None:
         events = pygame.event.get()
         for event in events:
             match event.type:
                 case pygame.KEYDOWN:
                     if pygame.key.get_pressed()[K_ESCAPE]:
                         quit()
-                        
+
                 case pygame.QUIT:
                     quit()
 
@@ -45,7 +44,7 @@ class Game:
                 print("player died")
                 return
 
-            self.checkEvents()
+            self.handle_events()
 
             self.game_map.update(frame_time)
 
@@ -57,6 +56,6 @@ class Game:
         while True:
             self.window.fill(Colour.Black)
 
-            self.checkEvents()
+            self.handle_events()
 
             pygame.display.flip()

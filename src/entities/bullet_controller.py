@@ -1,8 +1,7 @@
 __all__ = ["BulletController"]
 
-import pygame
 from pygame.surface import Surface
-from pygame.sprite import Group as SpriteGroup, spritecollide
+from pygame.sprite import Group as SpriteGroup
 from .bullet import Bullet
 
 
@@ -13,8 +12,7 @@ class BulletController:
     def __init__(self) -> None:
         self.bullet_group = SpriteGroup()
 
-    def update(self, frame_time: float, player_sprite: Surface, **kwargs) -> None:
-        # collisions = spritecollide(player_sprite, self.bullet_group, False)
+    def update(self, frame_time: float, **kwargs) -> None:
         self.bullet_group.update(frame_time, **kwargs)
 
     def draw(self, window: Surface) -> None:

@@ -8,6 +8,7 @@ from .entities.bullet_controller import BulletController
 from .colour import Colour
 from typing import Dict
 
+
 class Map:
     __slots__ = ("player", "enemy_controller", "bullet_controller", "play_area", "multiplier", "play_area_size")
 
@@ -37,17 +38,29 @@ class Map:
 
         self.play_area_size["width"] -= temp_multiplier
         self.play_area_size["height"] -= temp_multiplier
-  
-        self.play_area = Rect(round((1600 - self.play_area_size["width"]) / 2), round((900 - self.play_area_size["height"]) / 2), self.play_area_size["width"], self.play_area_size["height"])
-        
+
+        self.play_area = Rect(
+            round((1600 - self.play_area_size["width"]) / 2),
+            round((900 - self.play_area_size["height"]) / 2),
+            self.play_area_size["width"],
+            self.play_area_size["height"]
+        )
+
         self.player.update(frame_time, play_area=self.play_area)
 
-        self.enemy_controller.update(frame_time, play_area=self.play_area, player=self.player, bullet_controller=self.bullet_controller, **kwargs)
+        self.enemy_controller.update(
+            frame_time,
+            play_area=self.play_area,
+            player=self.player,
+            bullet_controller=self.bullet_controller,
+            **kwargs
+        )
+
         self.bullet_controller.update(frame_time, player_sprite=self.player.sprite, **kwargs)
 
     def draw(self, window: Surface) -> None:
         window.fill(Colour.White, self.play_area)
-            
+
         self.player.draw(window)
         self.enemy_controller.draw(window)
         self.bullet_controller.draw(window)
