@@ -7,8 +7,8 @@ from pygame.math import Vector2
 from pygame import transform
 from .bullet_generators.bullet_generator import BulletGenerator
 from .bullet_generators.simple_bullet_generator import SimpleBulletGenerator
-# from .bullet_generators.spiral_bullet_generator import SpiralBulletGenerator
-
+from .bullet_generators.spiral_bullet_generator import SpiralBulletGenerator
+from .bullet_generators.flower_bullet_generator import FlowerBulletGenerator
 
 class Enemy(Sprite):
     __slots__ = ("position", "bullet_generator", "sprite", "image", "size")
@@ -19,11 +19,11 @@ class Enemy(Sprite):
     image: Surface
     size: int
 
-    def __init__(self, start_pos: Vector2, bullet_generator: type = SimpleBulletGenerator) -> None:
+    def __init__(self, start_pos: Vector2, bullet_generator: type = SpiralBulletGenerator) -> None:
         Sprite.__init__(self)
 
         self.position = start_pos
-        self.bullet_generator = bullet_generator()
+        self.bullet_generator = bullet_generator(0.1)
 
         self.sprite = "sprites/Enemy.png"
         self.size = 20

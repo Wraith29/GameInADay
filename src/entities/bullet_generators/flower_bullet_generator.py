@@ -9,7 +9,7 @@ from ..player import Player
 from ..bullet import Bullet
 
 
-def bullet_modifier(vector: Vector2, frame_time: float) -> Vector2:
+def bullet_modifier(vector: Vector2, frame_time: float, **kwargs) -> Vector2:
     sin = math.sin(5 * frame_time)
     cos = math.cos(5 * frame_time)
 
