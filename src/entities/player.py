@@ -6,6 +6,7 @@ from pygame.math import Vector2
 from pygame.locals import K_w, K_s, K_a, K_d
 from pygame.rect import Rect
 import math
+from copy import deepcopy
 from ..consts import WINDOW_WIDTH, WINDOW_HEIGHT
 from .bullet_generators.bullet_generator import BulletGenerator
 from .bullet_generators.player_bullet_generator import PlayerBulletGenerator
@@ -50,8 +51,8 @@ class Player:
         self.pos += self.move_vector * frame_time * self.speed
 
         if pygame.mouse.get_pressed()[0] == 1:
-            self.bullet_generator.update(frame_time, self.pos, self.bullet_controller)
-            
+            self.bullet_generator.update(frame_time, deepcopy(self.pos), self.bullet_controller)
+
         self.bullet_controller.update(frame_time)
 
         # keep inside play area
