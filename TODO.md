@@ -1,0 +1,4 @@
+- [ ] Add Player Collisions
+  - [ ] Increase Shrink Rate on hit
+- [ ] Add Player Shooting
+  - [ ] Invert Shrinking on enemy death
