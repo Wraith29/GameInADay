@@ -1,6 +1,5 @@
 __all__ = ["Map"]
 
-from pygame.rect import Rect
 from pygame.surface import Surface
 from .entities.player import Player
 from .entities.enemy_controller import EnemyController
@@ -49,8 +48,4 @@ class Map:
         self.bullet_controller.draw(window)
 
     def has_player_died(self) -> bool:
-
-        if self.play_area.rect.w == 0 or self.play_area.rect.h == 0:
-            return True
-        else:
-            return False
+        return 0 in (self.play_area.rect.w, self.play_area.rect.h)

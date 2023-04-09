@@ -44,7 +44,6 @@ class Game:
             frame_time = self.clock.tick()/1000
 
             if self.game_map.has_player_died():
-                print("player died")
                 return
 
             self.handle_events()
