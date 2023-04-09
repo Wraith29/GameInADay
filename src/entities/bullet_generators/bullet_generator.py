@@ -2,7 +2,7 @@ __all__ = ["BulletGenerator"]
 
 from abc import ABC
 from pygame.math import Vector2
-from ..bullet_controller import BulletController
+from ..bullet_controllers.bullet_controller import BulletController
 
 
 class BulletGenerator(ABC):

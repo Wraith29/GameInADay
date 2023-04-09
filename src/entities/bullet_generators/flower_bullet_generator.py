@@ -3,7 +3,7 @@ __all__ = ["FlowerBulletGenerator"]
 import math
 from copy import deepcopy
 from pygame.math import Vector2
-from ..bullet_controller import BulletController
+from ..bullet_controllers.bullet_controller import BulletController
 from .bullet_generator import BulletGenerator
 from ..player import Player
 from ..bullet import Bullet
@@ -22,7 +22,7 @@ def bullet_modifier(vector: Vector2, frame_time: float) -> Vector2:
 
 
 class FlowerBulletGenerator(BulletGenerator):
-    def __init__(self, cooldown_time: int = 1):
+    def __init__(self, cooldown_time: int = 1) -> None:
         BulletGenerator.__init__(self)
         self.cooldown = cooldown_time
 

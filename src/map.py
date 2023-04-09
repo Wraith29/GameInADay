@@ -4,7 +4,7 @@ from pygame.rect import Rect
 from pygame.surface import Surface
 from .entities.player import Player
 from .entities.enemy_controller import EnemyController
-from .entities.bullet_controller import BulletController
+from .entities.bullet_controllers.enemy_bullet_controller import EnemyBulletController
 from .colour import Colour
 from typing import Dict
 
@@ -14,7 +14,7 @@ class Map:
 
     player: Player
     enemy_controller: EnemyController
-    bullet_controller: BulletController
+    bullet_controller: EnemyBulletController
     play_area: Rect
     multiplier: float
     play_area_size: Dict[str, float]
@@ -22,7 +22,7 @@ class Map:
     def __init__(self) -> None:
         self.player = Player()
         self.enemy_controller = EnemyController()
-        self.bullet_controller = BulletController()
+        self.bullet_controller = EnemyBulletController()
 
         self.play_area_size = {
             "width": 1600,
