@@ -6,7 +6,6 @@ from pygame.sprite import Group as SpriteGroup
 from pygame.surface import Surface
 from pygame.math import Vector2
 from pygame.locals import K_w, K_s, K_a, K_d
-from pygame.rect import Rect
 import math
 from copy import deepcopy
 
