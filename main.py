@@ -8,6 +8,7 @@ def main() -> int:
 
     if num_errors != 0:
         error("Failed To Initialise Pygame")
+        return 1
 
     game = Game()
 
