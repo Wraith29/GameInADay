@@ -17,7 +17,7 @@ class EnemyBulletController(BulletController):
 
     def update(self, frame_time: float, player: Player, play_area: PlayArea, **kwargs) -> None:
         collisions = spritecollide(player, self.bullet_group, True)
-        play_area.add_temp_multiplier(1.5, 1 * len(collisions))
+        play_area.add_temp_multiplier(3, 1 * len(collisions))
 
         self.bullet_group.update(frame_time, **kwargs)
 
