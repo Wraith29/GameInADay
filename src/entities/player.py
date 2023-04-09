@@ -6,11 +6,10 @@ from pygame.sprite import Group as SpriteGroup
 from pygame.surface import Surface
 from pygame.math import Vector2
 from pygame.locals import K_w, K_s, K_a, K_d
-from pygame.rect import Rect
 import math
 from copy import deepcopy
 
-from src.play_area import PlayArea
+from src.playarea import PlayArea
 
 from ..consts import WINDOW_WIDTH, WINDOW_HEIGHT
 from .bullet_generators.player_bullet_generator import PlayerBulletGenerator
