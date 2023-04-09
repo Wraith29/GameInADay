@@ -6,7 +6,7 @@ from .entities.enemy_controller import EnemyController
 from .entities.bullet_controllers.enemy_bullet_controller import EnemyBulletController
 from .colour import Colour
 
-from .play_area import PlayArea
+from .playarea import PlayArea
 
 
 class Map:
@@ -22,7 +22,7 @@ class Map:
         self.enemy_controller = EnemyController()
         self.bullet_controller = EnemyBulletController()
 
-        self.play_area = PlayArea(900, 600, 0.5)
+        self.play_area = PlayArea(1550, 850, 30)
 
     def update(self, frame_time: float, **kwargs) -> None:
         self.play_area.update(frame_time)
