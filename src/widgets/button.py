@@ -1,3 +1,5 @@
+__all__ = ["button"]
+
 from pygame.rect import Rect
 from pygame import mouse as Mouse
 from pygame import draw
@@ -5,8 +7,6 @@ from pygame.surface import Surface
 from .text import Text
 from ..colour import Colour
 
-
-_all_ = ["button"]
 
 class Button:
     __slots__ = ("text", "location", "colour", "center")
