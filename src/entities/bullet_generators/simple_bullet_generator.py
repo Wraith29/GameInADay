@@ -5,14 +5,8 @@ from pygame.math import Vector2
 from ..bullet_controllers.bullet_controller import BulletController
 from .bullet_generator import BulletGenerator
 from ..player import Player
-from ..bullet import Bullet
-
 
 class SimpleBulletGenerator(BulletGenerator):
-    def __init__(self, cooldown_time: int = 1) -> None:
-        BulletGenerator.__init__(self)
-        self.cooldown = cooldown_time
-
     def update(
                 self,
                 frame_time: float,
@@ -25,6 +19,6 @@ class SimpleBulletGenerator(BulletGenerator):
 
         if self.total_time < 0:
             player_pos = player.get_pos()  # Get the player position here
-            bullet_controller.add_bullet(Bullet(deepcopy(position), (player_pos-position).normalize()))
+            bullet_controller.add_bullet(self.bullet_type(deepcopy(position), (player_pos-position).normalize()))
 
             self.total_time += self.cooldown

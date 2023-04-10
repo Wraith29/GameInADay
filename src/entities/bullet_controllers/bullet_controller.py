@@ -3,7 +3,7 @@ __all__ = ["BulletController"]
 from abc import ABC
 from pygame.sprite import Group as SpriteGroup
 from pygame.surface import Surface
-from ..bullet import Bullet
+from ..bullets.simple_bullet import SimpleBullet
 
 
 class BulletController(ABC):
@@ -20,8 +20,8 @@ class BulletController(ABC):
     def draw(self, window: Surface) -> None:
         self.bullet_group.draw(window)
 
-    def add_bullet(self, bullet: Bullet) -> None:
+    def add_bullet(self, bullet: SimpleBullet) -> None:
         self.bullet_group.add(bullet)
 
-    def remove_bullet(self, bullet: Bullet) -> None:
+    def remove_bullet(self, bullet: SimpleBullet) -> None:
         self.bullet_group.remove(bullet)
