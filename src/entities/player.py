@@ -72,10 +72,7 @@ class Player(Sprite):
 
         self.rect.center = (int(self.position.x), int(self.position.y))
 
-        if pygame.mouse.get_pressed()[0] == 1:
-            self.bullet_generator.update(frame_time, deepcopy(self.position), self.bullet_controller)
-        else:
-            self.bullet_generator.tick(frame_time)
+        self.bullet_generator.update(frame_time, deepcopy(self.position), self.bullet_controller)
 
         self.bullet_controller.update(frame_time, enemy_group, play_area)
 

@@ -20,8 +20,4 @@ class PlayerBulletGenerator(BulletGenerator):
             target_pos = Vector2(mouse_x, mouse_y)  # Get the player position here
             bullet_controller.add_bullet(self.bullet_type(position, (target_pos-position).normalize()))
 
-            self.total_time += self.cooldown
-
-    def tick(self, frame_time: float) -> None:
-        #self.total_time -= frame_time
-        self.total_time = 0
+                self.total_time += self.cooldown
