@@ -16,7 +16,7 @@ class BulletGenerator(ABC):
     def __init__(self, cooldown: float | int, bullet_type: type = SimpleBullet) -> None:
         self.total_time = 0
         self.cooldown = cooldown
-        self.bullet_type = SimpleBullet
+        self.bullet_type = bullet_type
 
     def update(self, frame_time: float, position: Vector2, bullet_controller: BulletController, **kwargs) -> None:
         """Virtual Method"""

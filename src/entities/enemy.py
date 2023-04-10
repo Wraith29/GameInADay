@@ -1,14 +1,13 @@
 __all__ = ["Enemy"]
 
+from pygame import image, transform
 from pygame.sprite import Sprite
 from pygame.surface import Surface
-from pygame import image
 from pygame.math import Vector2
-from pygame import transform
 from pygame.rect import Rect
 from .bullet_generators.bullet_generator import BulletGenerator
-from .bullet_generators.spiral_bullet_generator import SpiralBulletGenerator
-
+from .bullet_generators.simple_bullet_generator import SimpleBulletGenerator
+from .bullets.exploding_bullet import ExplodingBullet
 
 class Enemy(Sprite):
     __slots__ = ("position", "bullet_generator", "sprite", "image", "size")
@@ -19,11 +18,11 @@ class Enemy(Sprite):
     image: Surface
     size: int
 
-    def __init__(self, start_pos: Vector2, bullet_generator: type = SpiralBulletGenerator) -> None:
+    def __init__(self, start_pos: Vector2, bullet_generator: type = SimpleBulletGenerator) -> None:
         Sprite.__init__(self)
 
         self.position = start_pos
-        self.bullet_generator = bullet_generator(0.75)
+        self.bullet_generator = bullet_generator(0.75, bullet_type=ExplodingBullet)
 
         self.sprite = "sprites/Enemy.png"
         self.size = 20

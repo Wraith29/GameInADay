@@ -22,7 +22,7 @@ class EnemyBulletController(BulletController):
         if len(collisions) > 0:
             play_area.add_temp_multiplier(ENEMY_HIT_MULTIPLIER * len(collisions), 0.5)
 
-        self.bullet_group.update(frame_time, **kwargs)
+        self.bullet_group.update(frame_time, bullet_controller = self, **kwargs)
 
     def draw(self, window: Surface) -> None:
         self.bullet_group.draw(window)
